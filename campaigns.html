@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Campaigns - City Deals</title>
+        <script src="js/jquery.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href='http://fonts.googleapis.com/css?family=Sintony' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Snippet' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Euphoria Script' rel='stylesheet' type='text/css'>
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">        
+
+        <script src="http://eonasdan.github.io/bootstrap-datetimepicker/scripts/moment.js"></script>
+        <link href="http://eonasdan.github.io/bootstrap-datetimepicker/styles/bootstrap-datetimepicker.min.css" rel="stylesheet">
+        <script src="http://eonasdan.github.io/bootstrap-datetimepicker/scripts/bootstrap-datetimepicker.js"></script>
+        
+        
+        <style>
+            h1, h2, h3, h4, h5 {
+                font-family: 'Sintony', sans-serif;
+                margin-bottom: 0px;
+            }
+
+            .ring35 {
+                height: 54px;
+                width: 54px;
+                -moz-border-radius: 27px;
+                border-radius: 27px;
+                background: #d43f3a;
+                text-align: center;
+                font-size: 24px;
+                color: #FFF;
+                margin-right: 5px;
+                padding-top: 10px;
+            }
+
+            .social-icon{
+                text-align: center;
+                color: #333; 
+                font-family: socialico, sans-serif;
+                font-size: 32px;
+            }
+            .social-icon:hover{
+                color: #d43f3a;
+                padding-top: 1px;
+            }
+
+            .logo{
+                width: 100px;
+                height: 100px;
+                border: 1px solid #39b3b7;
+                border-radius: 5px;
+                box-shadow: 5px 5px 5px #999;
+            }
+
+
+            .hr-strike {
+                height: 1px;
+                background-color: #e0e0e0;
+                margin-top: 10px;
+                margin-bottom: 10px;
+            }
+
+            .outlet-name {
+                margin-top: 0px;
+                color:#2c9ab7;
+                font-size: 24px;
+            }
+
+            .coupon-count{
+                margin-top: 0px;
+                color:#666;
+                font-weight: bold;
+                font-size: 24px;
+            }
+
+
+            .container-non-responsive {
+                /* Margin/padding copied from Bootstrap */
+                margin-left: auto;
+                margin-right: auto;
+                padding-left: 15px;
+                padding-right: 15px;
+
+                /* Set width to your desired site width */
+                width: 1170px;
+            }
+
+
+
+        </style>
+        
+        <script>
+            $(function(){
+                $('.datetimepicker').datetimepicker();
+
+            });
+            
+            
+        </script>
+        
+
+    </head>
+    <body style="font-family: 'Sintony', sans-serif; background: url(img/bg_main.jpg) repeat;">
+        <div id='header' style="height: 100px; width: 100%; background: url(img/bg_black.png) repeat-x; ">
+            <div class='container-non-responsive'>
+                <div class='row'>
+                    <div id="logo" class="col-xs-4" style="padding-top: 15px; font-size: 32px; color: #FFFFFF; font-family: 'Euphoria Script', sans-serif;">
+                        City Deals
+
+                    </div>
+
+                    <div class="col-xs-8" style="padding-top: 5px; color: #FFFFFF">
+                        <span class='pull-right' style='color: #EEE; font-size: 12px;'> sajjadsarwar1@gmail.com </span><br>
+                        <span class='pull-right'>
+                            <button class="btn btn-warning btn-sm" data-toggle="modal" data-target="#qrCodeModal"> QR Code </button>
+
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-info dropdown-toggle btn-sm" data-toggle="dropdown">
+                                    Credit: $100.00 <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="#" data-toggle="modal" data-target="#rechargeModal">Recharge</a></li>
+                                </ul>
+                            </div>
+
+
+                            <span class="btn btn-default btn-sm"> Logout </span>
+                        </span>
+                    </div>
+
+
+
+                </div>
+
+            </div>
+        </div>
+
+        <div id='content' class='container-non-responsive'>
+            <div class='row'>
+                <div class="col-xs-3">
+                    <ul class="nav nav-pills nav-stacked" style='background: #FFF; padding: 10px; border-radius: 4px'>
+                        <li class="active"><a href="#">Outlets</a></li>
+                        <li><a href="#">Campaigns</a></li>
+                        <li><a href="#">Transactions</a></li>
+                        <li><a href="#">Payment History</a></li>
+                        <li><a href="#">Stats</a></li>
+
+                    </ul>
+
+                </div>
+
+                <div class="col-xs-9" >
+
+                    <div class='row'>
+                        <div class='panel panel-primary' style='color:#444 ;background: #FFF; padding-left: 20px;padding-right: 20px; border-color: #FFF;border-radius: 4px; min-height: 350px;'>
+                            <h2 class="panel-heading" style='margin-top: 10px;margin-bottom: 5px;height: 50px;'>
+                                Campaigns
+                            </h2>
+                            
+                            <div class='row' style="margin-bottom: 20px;">
+                                <span style="float: left;margin-left: 20px; margin-top: 5px;">Filter Campaigns:</span>
+                                <select class="form-control input-sm" style="width: 170px; margin-left: 20px; float: left;">
+                                    <option value="discountOffer">All Outlets</option>
+                                    <option value="buySomeGetSome">Gloria Jeans, Street 22, F-7, Islamabad</option>
+                                </select>
+                                <input type="text" class="form-control input-sm datetimepicker" style="width: 150px; float: left;" placeholder="Start Time">
+                                <input type="text" class="form-control input-sm datetimepicker" style="width: 150px; float: left;" placeholder="End Time">
+                                <div style="width: 90px; height: 30px; float: left;margin-top: 3px;margin-left: 5px; font-size: 12px;" > <input type="checkbox" > Active Only </div>
+                                <button type="button" class="btn btn-info btn-sm" style="float: left; margin-left: 10px;">Filter</button>
+                                <button type="button" class="btn btn-default btn-sm" style="float: left; margin-left: 5px;">Clear</button>
+                            </div>
+                            <hr class='hr-strike'>
+                            
+                            <div class='row'>
+                                <div class='col-xs-2'>
+                                    <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBhQSERUTExQWEhQVFxwYGBcXFBcWGxwZGBgXGBwcFiAbHiYeGBojGhgVHy8gIycpLCwsFR4xNTAqNSYrLCkBCQoKDgwOGg8PGjElHyQpKiosKjUvLCwvKS8pLCwsLSwpLCwpKSwsKSkpLCwpLCwsKSksLCkpKSwsKSksLCwpKf/AABEIAHgAeAMBIgACEQEDEQH/xAAcAAACAgMBAQAAAAAAAAAAAAAABgQFAQMHAgj/xAA6EAABAwEHAQYFAgQGAwAAAAABAgMRAAQFBhIhMUFREyJhcYGRBzKhsdFCwRRicvAjUlPC0uEVFhf/xAAaAQACAwEBAAAAAAAAAAAAAAADBAACBQYB/8QAKBEAAgIBAwQBBAMBAAAAAAAAAQIAAxEEITESEyJBUQUyYaEjcbEU/9oADAMBAAIRAxEAPwDuFFFBUBUkhRUC0X8wjdxPoZqM1i1hSsuYjxI0oB1FSnBYSS4orCVgiRqPCs0fMkKKKKkkKKzRUkmKKzWKkkKKKJqSQoqHeN7tMR2igkqnKOTG8DmKKk9xFq045V+hAHiTNUa70tNsKkpJEGJUMqfbmoDD4I0ivLiTvJnpx7Vzb6hnHkczyz7scCWlowaEJU6u0SYjKPl0nbXx+lVTDWuh/FeewPJ0HH71W3piVtgEAgnoDS3i3reU52EaLJbVoPdzEcwalnEDidc5SPEk0qXDexUwlZ3VKvc1NceQ5ooSK9rvavKE8QgPT4mMtlxiskhOZyNylJUJ6Eidamt48bByr0PqPuBSnZLUWJ7JyD0WJH5rTftvffSEpLYOsq19IB/NPJqyftaEwpnS7NiFpZicp8askqBrkt0NFtMFZJOpBMifCdhTjcd7z3FHUbHwpqnWEt0vKEfEaqS8Q/E5uyvKZ7BxxaCMxlKE67QVGTOuw4pgev1tCVFa0AIEnvDNHlvSre9psl5tkBUOpTKCQUqHT0mmH1SjYZl1T5lp/wCytW2xPKbUWVpQSpKjlWkxInwPBFIdzYhtFnPatOdo0IJbWtMGZ7sbpWdTKZ8ua1WPDKS+lP8AFJQsT3W0nQDclRhM8bfpOnRtw5hmyKfH+CVZEZgXIOYlQ7xjQz5RRxkybCTm/wCJt8LyfwjZHzKhxcHUhA+USY1MjQaUU4AUUTEH1TltqOUSBtxS45iJa3UNobUmQoqCkTtsJGx963Yhs7i0FKTHvHqJr3hu+G2gErTqDGoInxTMyK5moJ09WMywXPM3KZtZCVFOgOsRqONIqpvZTKzDzMmYBA7301p6tGI2lN7ECK5sLNntAWyM6MxlRGvEEHodtOlEWvq3G2JcDp3E2u3S80grYeK0pBhpaQT5JIj61aWNL3dDjeVShxttOvSrawtkJ1Fe3rwCIBMwDAnalGYMMON/mQ5fnmK16WlxB+U+lVCcU5TCiR5033mvu5lZUJImVqCfadSPGqOwFjt4WplSDv3gaJTUMeSyCizkCYdxPDYIMz0roPw3YS62X1SVTAnYRz4mlTEn8GpotsuNFzhIM6+lYue1FmypsqFqUXMylGIBJ/SOcgkaz+KOmlHPGIXtkY2km+cOg2t4JOYlZKlTGUKVmiVQAY05/atbd0rYcQ2nvrcICgEqKkpJgkqAhIAJMzrFWl14XtAQkNunQ5oygJ/5HnUnkmmW6bifTnceWFLWqYAgAdN+s+9MWaysV/x5zCKhB8jtNGJrDNmShprMEKTCEBIMapOSdBodzTDhm61NJUtaQhSwBlH6QMx14mVHbgCq+CPSr27rXnRruNDVPpeq6s1v/YldTXgZEm0VGsd4tuiW1pWP5SD79KK3ciJTmabQhVejY0HXQ1ZpuhkrClJgdAY361rvHD3+itQ8Faj81w57ie4VayeJVPXag7isMtpb0SkJHtVDflqtNm1U0txP+ZEK9xv9KqWL2L5BCtPD+96ZQXEZPE0dJou+/SY32+8SEEpGdXAH/dI9pvd5tWYphxWxUJCf6RsT51dstrSNTIOw2itFrbS4nKsT6wfSjV4Q+W86Gr6PWu+cxTfJWoqWorUdSpRJJ8ydTWlVlJ1q7XciswSiVyNIFZcu5TfnHGo1p5X2zDuFTb3FzUbaQacLgvYIdSpcAGAr0qjsN3oUSFZpEEAAR45qYW7EjTupJ2j81W1gRiBpqW/J9cTsdivMZQREHasu3kTXPLrvQtQ3xxJ2FMzNqkbzWdbk8TKu0JqbeXZUFedbLseyugH9Wn7/ALUt27EKLOmVnXgcmqjD2JnLVbEKIypTskHr16mpp1IsVh8wD1HoPxLTFtgKLaOzASpYzJIOQzz3tOfvRUz4pIhDC/5lJ9wD/torec4YznnJBnlu1yB9v78Kyi8AFFM6TvURo5eh0gg7bcVMw9Y0uOKCtZFcy+XKr7zHtK4U+XEypaXEyIIpcvG40g50pAVrxT0vDqAqBKQenWoluwwopOVcnxEfamey6TWq1KI2VM5c6+R3ZmKhvPGYOtWWIMPWhp1SlNKCYBzp7w5mY243qitDhMHzq4rPudjpr0tQESzuy0iSOdIq17ULIS4SlonvZUiY/vzqjuOyKW6MpBAAUeYmYB8aa7Bht9xWiNOp0FXOV2zFdSaGBFhE3XlcVjDRVZYSQNTMk+cmRSwwkyFKEZRp+1Pb+CtNVAH+Uafeql/Bzw2UlX0/NeHqzFdFfp6kKB9vzF4rKxpA96sHHXWxKVREg6TrwR05rFrYWzoUFAiBBP1NFntEQN9NYqNgbxywLYv4lRaLOpwkqVnV1pt+HVzQsKPgfxSn2mVUxGumvFdawVZR2aSOgJ8yNPpTekqDNOf+pr2V24MqPi9aIaYT1WVeyY/eilr4r3sHLWlsHRpP1UR+wFFM2EsxM5Swby2KwesVKwrbM1okHTauY4l+IMks2UZuFOcD+nr50xfDfFbeb/GKWiI3VoZnaftWK2jtUCwj3Haq9jOzOqrAcqoF8tK+VxKh/UKwq+UJGigfI0RrgDkmXFRxLG0KHNIWKcPMugqbhpexgaKkjcdfzWy+8bpSDqAOpNLuHb7NtfKgCGkGB4n/AK096W7lrnqQeI9zR04ajyBxHzC2D2LMjuSpSvmUdzTFEaCo1mcASPKthd0p8RK13sbLHM8Oia1FuvWatL78VZdt5YbRcxkoJYUeYNc5sl6oELTMxChvPQ+GlWnxRxMpJQw3qVAqWRwOB660iWa1KVCEJJUrQAAkkngDeaL2iw6p0GgtUJ0kxzsFk/iHENo1zEaDfxFdgtlqRYLIVKI7qZPiY4+wpewBgwXe0q0WggvrSO7wgb5R1UZ1PpSH8U8ZF9YZSe4NVePQUyi9oY9n9TI+oakXv4/av7MV7beannVur+Zaio+vHoIHpRVa25RUxiYbDJkdtoAaaVvYsKlkBKSSdAIpje+G1pbIAKXE9R3fcGn/AAdgppgBxwhbkckaeVAtvCjx3nUd+pU6sb/EUrm+Hby0Sols8AcedWJ+Gj/+qfY/8q6oi0o2Ee4raHknmsd7bmOQf8iJ1DZ4nGbR8MbQf1JV5zVhc1y2qyJyhnN4pUD9K6opQrx2YNCa+/GG3E8N3VyIif8An1p+dKk+aSKk2bFw604qaFVluuxtQIKE6+AoY1DKdxBbHiQU4oQR8wFVttvlTm2ifvUN7DXZudxJVJ0G/pTDdWC1kS+ezTMwNT+BTy928Yr3idjkHETncJm1LIaBznU9PXpThhXA9nusF51QdtCv1EQEjogceJ5qytd/MWVHZsgen7nk0i3ziNbpJJ061pVL/wA64Jy36EYQ2MuGO0k43xx3Va90cD6AedcbtFqLiytW6jNTb/vftlwn5E7eJ5V+KrU0yikeTcmBsbOw4m9lVFeUmivTA4n0gW5qJarqSobViis4gEbxsEg7RevG5XJlt5SD0PeH5+tLl4XxbLPqpPaAcoUfqKKKU6UDhSoIjauSN5W//TlD/NPnFZY+KVoKsqEqXPGYz9qxRWudBQq5xE7LSDHS57Te1ogoZUhJ5cOQfUT9KcbtuR5HetVoR/ShP3UfxRRXlWipKdZED3GJxNlsxWwwIbAUrw/NKV8Ywcc3MDoKzRVnYjxGwjKoBvFq02/cqMAUmX7iHte4jRPJ6+A8KKK9qQE5lLWOMSjFbEUUUcxUTbRRRQ57P//Z" class="img-rounded logo">
+                                </div>    
+                                <div style='margin-left: 10px; width: 240px; float: left;'>
+                                    <h2 class='outlet-name'>Gelato Affairs</h2>
+                                    <p style='margin-top: 5px; margin-right: 15px;'>Street 22, F5-1, Islamabad<p>
+                                    <p style='font-size: 12px; margin-right: 15px;'><b>Offer:</b>
+                                        10% off on all products and some lorem ipsum stuff.
+                                    </p>
+                                </div>
+                                <div style='margin-left: 0px; width: 150px; float: left;'>
+                                    <h2 class='coupon-count'>33</h2>
+                                    <p>Coupons Pushed</p>
+                                    <p style='font-size: 11px; padding-top: 5px;'>
+                                        <b>Start Time:</b><br>
+                                        <span style='font-size: 12px;'>11 Nov 2013 08:30 am </span>
+                                    </p>
+                                </div>
+                                <div style='margin-left: 10px; width: 150px; float: left;'>
+                                    <h2 class='coupon-count'>33</h2>
+                                    <p>Coupons Availed</p>
+                                    <p style='font-size: 11px; padding-top: 5px;'>
+                                        <b>End Time:</b><br>
+                                        <span style='font-size: 12px;'>11 Nov 2013 08:30 am </span>
+                                    </p>
+                                    
+                                    
+                                </div>
+                                <div style='margin-left: 0px; width: 130px; float: left;'>
+                                    <div class="btn-group">
+                                        <button type="button" data-toggle="modal" data-target="#editCampaignModal" class="btn btn-primary btn-sm">Edit</button>
+                                        <button type="button" data-toggle="modal" data-target="#deleteCampaignModal" class="btn btn-default btn-sm">Delete</button>
+                                    </div>
+
+                                    <p style='font-size: 11px; padding-top: 26px;'>
+                                        <b>Status:</b><br>
+                                        <span style='font-size: 12px;' class="label label-success">Active</span>
+                                    </p>
+
+
+                                </div>
+                            </div>
+
+                            <hr class='hr-strike'>
+
+                            <div class='row'>
+                                <div class='col-xs-2'>
+                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsIeU9eeQHCrs3afhnVLsge8IM9rx2Dg1b3Uz-VLyP9osHqpLqeA" class="img-rounded logo">
+                                </div>    
+                                <div style='margin-left: 10px; width: 240px; float: left;'>
+                                    <h2 class='outlet-name'>Olive Garden</h2>
+                                    <p style='margin-top: 5px; margin-right: 15px;'>Street 22, F5-1, Islamabad<p>
+                                    <p style='font-size: 12px; margin-right: 15px;'><b>Offer:</b>
+                                        10% off on all products and some lorem ipsum stuff.
+                                    </p>
+                                </div>
+                                <div style='margin-left: 0px; width: 150px; float: left;'>
+                                    <h2 class='coupon-count'>33</h2>
+                                    <p>Coupons Pushed</p>
+                                    <p style='font-size: 11px; padding-top: 5px;'>
+                                        <b>Start Time:</b><br>
+                                        <span style='font-size: 12px;'>11 Nov 2013 08:30 am </span>
+                                    </p>
+                                </div>
+                                <div style='margin-left: 10px; width: 150px; float: left;'>
+                                    <h2 class='coupon-count'>33</h2>
+                                    <p>Coupons Availed</p>
+                                    <p style='font-size: 11px; padding-top: 5px;'>
+                                        <b>End Time:</b><br>
+                                        <span style='font-size: 12px;'>11 Nov 2013 08:30 am </span>
+                                    </p>
+                                    
+                                    
+                                </div>
+                                <div style='margin-left: 0px; width: 130px; float: left;'>
+                                    <div class="btn-group">
+                                        <button type="button" data-toggle="modal" data-target="#deleteCampaignModal" class="btn btn-default btn-sm">Delete</button>
+                                    </div>
+
+                                    <p style='font-size: 11px; padding-top: 26px;'>
+                                        <b>Status:</b><br>
+                                        <span style='font-size: 12px;'>Completed</span>
+                                    </p>
+
+
+                                </div>
+                            </div>
+
+                            <hr class='hr-strike'>
+
+                            <div class='row'>
+                                <div class='col-xs-2'>
+                                    <img src="//placehold.it/100x100&text=100x100" class="img-rounded logo">
+                                </div>    
+                                <div style='margin-left: 10px; width: 240px; float: left;'>
+                                    <h2 class='outlet-name'>KC Grill</h2>
+                                    <p style='margin-top: 5px; margin-right: 15px;'>Street 22, F5-1, Islamabad<p>
+                                    <p style='font-size: 12px; margin-right: 15px;'><b>Offer:</b>
+                                        10% off on all products and some lorem ipsum stuff.
+                                    </p>
+                                </div>
+                                <div style='margin-left: 0px; width: 150px; float: left;'>
+                                    <h2 class='coupon-count'>33</h2>
+                                    <p>Coupons Pushed</p>
+                                    <p style='font-size: 11px; padding-top: 5px;'>
+                                        <b>Start Time:</b><br>
+                                        <span style='font-size: 12px;'>11 Nov 2013 08:30 am </span>
+                                    </p>
+                                </div>
+                                <div style='margin-left: 10px; width: 150px; float: left;'>
+                                    <h2 class='coupon-count'>33</h2>
+                                    <p>Coupons Availed</p>
+                                    <p style='font-size: 11px; padding-top: 5px;'>
+                                        <b>End Time:</b><br>
+                                        <span style='font-size: 12px;'>11 Nov 2013 08:30 am </span>
+                                    </p>
+                                    
+                                    
+                                </div>
+                                <div style='margin-left: 0px; width: 130px; float: left;'>
+                                    <div class="btn-group">
+                                        <button type="button" data-toggle="modal" data-target="#deleteCampaignModal" class="btn btn-default btn-sm">Delete</button>
+                                    </div>
+
+                                    <p style='font-size: 11px; padding-top: 26px;'>
+                                        <b>Status:</b><br>
+                                        <span style='font-size: 12px;'>Completed</span>
+                                    </p>
+
+
+                                </div>
+                            </div>
+
+                            <hr class='hr-strike'>
+
+                            <div class='row'>
+                                <div class='col-xs-2'>
+                                    <img src="//placehold.it/100x100&text=100x100" class="img-rounded logo">
+                                </div>    
+                                <div style='margin-left: 10px; width: 240px; float: left;'>
+                                    <h2 class='outlet-name'>1969</h2>
+                                    <p style='margin-top: 5px;'>Street 22, F5-1, Islamabad<p>
+                                    <p style='font-size: 12px;'><b>Offer:</b>
+                                        10% off on all products
+                                    </p>
+                                </div>
+                                <div style='margin-left: 0px; width: 150px; float: left;'>
+                                    <h2 class='coupon-count'>33</h2>
+                                    <p>Coupons Pushed</p>
+                                    <p style='font-size: 11px; padding-top: 5px;'>
+                                        <b>Start Time:</b><br>
+                                        <span style='font-size: 12px;'>11 Nov 2013 08:30 am </span>
+                                    </p>
+                                </div>
+                                <div style='margin-left: 10px; width: 150px; float: left;'>
+                                    <h2 class='coupon-count'>33</h2>
+                                    <p>Coupons Availed</p>
+                                    <p style='font-size: 11px; padding-top: 5px;'>
+                                        <b>End Time:</b><br>
+                                        <span style='font-size: 12px;'>11 Nov 2013 08:30 am </span>
+                                    </p>
+                                    
+                                    
+                                </div>
+                                <div style='margin-left: 0px; width: 130px; float: left;'>
+                                    <div class="btn-group">
+                                        <button type="button" data-toggle="modal" data-target="#editCampaignModal" class="btn btn-primary btn-sm">Edit</button>
+                                        <button type="button" data-toggle="modal" data-target="#deleteCampaignModal" class="btn btn-default btn-sm">Delete</button>
+                                    </div>
+
+                                    <p style='font-size: 11px; padding-top: 26px;'>
+                                        <b>Status:</b><br>
+                                        <span style='font-size: 12px;' class="label label-success">Active</span>
+                                   </p>
+
+
+                                </div>
+                            </div>
+
+                            <hr class='hr-strike'>
+
+
+                            <!-- Pagination Stuff -->
+                            <div class='row' style='margin-top: 30px; margin-bottom: 10px;'>
+                                <div class='col-xs-4 col-xs-offset-4'>
+                                    <span class='pull-left' style='margin-top: 5px;'>Page </span>
+                                    <input type="text" style='text-align: center;width: 60px; margin-left: 5px; margin-right: 10px;' class="form-control pull-left input-sm" id="inputEmail3" value="1">
+                                    <span class='pull-left' style='margin-top: 5px; margin-right: 10px;'> of 11</span>
+                                    <button class='btn btn-sm btn-default'>Go</button>
+
+                                </div>
+                            </div>                                
+                            <!-- Pagination over -->
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div style='padding-top: 60px;'>
+            <div id='footer' style="height: 50px; background: #FFF;width: 100% !important; border-top: solid 2px #285e8e;" class="nav navbar-fixed-bottom">
+
+                <div class='container-non-responsive' style="margin-top: -2px;">
+                    <div class="row">
+                        <div class="col-xs-5"> </div>
+                        <div class="col-xs-2">
+                            <div class='row'>
+                                <div class='col-xs-4 social-icon' ><i class="fa fa-facebook-square"></i></div>
+                                <div class='col-xs-4 social-icon' ><i class="fa fa-twitter-square"></i> </div>
+                                <div class='col-xs-4 social-icon' ><i class="fa fa-google-plus-square"></i> </div>
+                            </div>
+
+                        </div>
+                        <div class="col-xs-5"> </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <div class="modal fade" id="rechargeModal" style="padding-top: 5%;">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <form class="form-horizontal">
+
+                        <div class="modal-header" style="background: #357ebd; color: #FFF;">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h4 class="modal-title">Recharge Account</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label for="inputEmail3" class="col-xs-4 control-label">Current Balance (USD): </label>
+                                <div class="col-xs-8">
+                                    <input style='background: #b94a48; color: #FFF;' type="text" class="form-control" id="inputEmail3" value="$ 100.0" disabled>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputEmail3" class="col-sm-4 control-label">Refill Amount (USD): </label>
+                                <div class="col-sm-8">
+                                    <input type="number" min="10.00" class="form-control" id="inputEmail3" placeholder="$ 00.0">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputEmail3" class="col-sm-4 control-label">Balance After Refill (USD): </label>
+                                <div class="col-sm-8">
+                                    <span class="form-control" >$ 500 </span>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                            <button type="button" class="btn btn-success">Proceed</button>
+                        </div>
+                    </form>
+
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+
+
+
+        <div class="modal fade" id="qrCodeModal" >
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header" style="background: #357ebd; color: #FFF;">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title">QR Code</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p class="alert alert-danger" style='margin-bottom: 0px;'>Print QR code and keep it at outlet's counter. Your customers will redeem coupons by scanning QR code through their Smart Phone camera.</p>
+                        <img src='img/qr_code_reward.jpg' style="width: 300px; display: block; margin-left: auto; margin-right: auto;">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-success">Print</button>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+
+
+
+        <div class="modal fade" id="deleteCampaignModal" style='margin-top: 10%;'>
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header" style="background: #d43f3a; color: #FFF;">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title">Delete Outlet?</h4>
+                    </div>
+                    <div class="modal-body">
+                        <h3>Are you sure you want to delete the campaign?</h3>
+                        <h4>You will not be able to undo this action.</h4>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn btn-danger">Delete Campaign</button>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+
+        
+        <div class="modal fade" id="editCampaignModal" style='margin-top: 10%;'>
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header" style="background: #357ebd; color: #FFF;">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title">Edit Campaign</h4>
+                    </div>
+                    <div class="modal-body">
+
+                        <form class="form-horizontal" role="form">
+                            <div class="form-group">
+                                <label for="inputEmail3" class="col-sm-4 control-label">Start Time</label>
+                                <div class="col-sm-5">
+                                    <div class="input-group date datetimepicker"> 
+                                        <input type="text" class="form-control dtformat" /> 
+                                        <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                                    </div>                                
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputEmail3" class="col-sm-4 control-label">End Time</label>
+                                <div class="col-sm-5">
+                                    <div class="input-group date datetimepicker"> 
+                                        <input type="text" class="form-control dtformat" /> 
+                                        <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                                    </div>                                
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="inputEmail3" class="col-sm-4 control-label">Number of Coupons</label>
+                                <div class="col-sm-5">
+                                        <input type="number" class="form-control" /> 
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="inputEmail3" class="col-sm-4 control-label">Change in bill: </label>
+                                <div class="col-sm-5">
+                                    <input style="background: #2c9ab7; color: #fff;" type="text" class="form-control" value=" + $ 0.00"  disabled/> 
+                                </div>
+                            </div>
+                            
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                                <button type="submit" class="btn btn-success">Commit Changes</button>
+                            </div>
+                </form>
+
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+
+
+    </body>
+</html>
